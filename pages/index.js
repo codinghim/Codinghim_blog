@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { PostCard } from '@/components'
+import { PostCard, PostWidget } from '@/components'
 import { getPosts } from '@/services'
 import FeaturedPosts from '@/components/FeaturedPosts';
 
@@ -18,13 +18,14 @@ export default function Home({posts}) {
             </Head>
             <FeaturedPosts />
             <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
-                <div className='lg:col-span-8 col-span-1'>
+                <div className='lg:col-span-8 md:col-span-8 col-span-1'>
                     {posts.map((post)=> (
                         <PostCard post={post.node} key={post.node.title} />
                     ))}
                 </div>
-                <div className='lg:col-span-4 col-span-1'>
+                <div className='lg:col-span-4 md:col-span-4 col-span-1'>
                     <div className='lg:sticky relative top-8'>
+                        <PostWidget />
                     </div>
                 </div>
             </div>
