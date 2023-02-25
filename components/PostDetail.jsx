@@ -33,7 +33,6 @@ const PostDetail = ({post}) => {
                 {/* <div className={Styles.post_excerpt_container}>
                     <p className={Styles.post_excerpt}>{post.excerpt}</p>
                 </div> */}
-                {console.log(post.content)}
                 <div className={Styles.post_content_container}>
                     <RichText 
                         content={post.content.raw}
