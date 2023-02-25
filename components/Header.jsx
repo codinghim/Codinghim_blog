@@ -16,8 +16,8 @@ const Header = () => {
     // }, [])
 
     return (
-        <div className='container mx-auto px-10 mb-8'>
-            <div className='border-b w-full inline-block border-black pt-8 pb-3'>
+        <div className='mx-0 px-0 mb-8 w-full'>
+            <div className='border-b w-full inline-block border-black pt-4 pb-3'>
                 <div className='md:float-left block'>
                     <Link href="/">
                         <span className={Styles.logo}>

@@ -1,54 +1,93 @@
+@import './lib/breakpoint.scss';
 .post_container{
-    background-color: #D9D9D9;
-    padding: 2em;
-    margin-bottom: 2rem;
-}
-.post_category{
-    color:white;
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 0.3;
-    text-align: center;
-}
-.post_title{
-    cursor: pointer;
-    font-size: 2.5rem;
-    font-weight: 500;
-    margin-bottom: 2rem;
-    text-align: center;
-    // line-height: 0.6;
-}
-.author_container{
-    display: flex;
-    justify-content: center;
-    margin-bottom:2rem;
-    .author_img_container{
+    // background-color: #D9D9D9;
+    @include breakpoint(tablet){
+        padding: 1rem;
     }
-    .author_info_container{
-        margin-top:0.5rem;
-        margin-left:1rem;
-        font-size:1.3rem;
-        font-weight:500;
-        line-height:1.2;
-        .author_name{
-            // margin-left:0.3rem;
-        }
-        .svg{
-            float: left;
-            margin-right: 0.3rem;
-        }
-        .date{
-            float:left;
-            color:#7f7f7f;
-            margin-top: 0.3rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display:flex;
+    .thumbnail_container{
+        position:relative;
+        width: 200px;
+        min-width: 200px;
+        height: 130px;
+        min-height:130px;
+        overflow: hidden;
+        .thumbnail{
+            // object-fit: contain;
+            // width:100%;
+            // position:relative;
+            // height: unset;
         }
     }
+    .post_card_detail_container{
+        padding: 0 2rem;
+        .post_title{
+            font-size: 1.5rem;
+            font-weight: 600;
+            max-lines: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2; /* number of lines to show */
+            -webkit-box-orient: vertical;
+            line-clamp: 2; 
+            display:-webkit-box;
+        }
+        .post_detail_container{
+            display:flex;
+            flex-direction: row;
+            font-size: 0.8rem;
+            font-weight:400;
+            line-height: 2rem;
+            *{
+                margin-right:20px;
+                color: #6d6d6d;
+            }
+            .category_cotainer{
+                div{
+                    display:inline-block;
+                    &:nth-child(2n){
+                        .colored_dot{
+                            background-color: #6d6d6d;
+                        }
+                        
+                    }
+                    &:nth-child(2n+1){
+                        .colored_dot{
+                            background-color: #6d6d6d;
+                        }
+                    }
+                }
+                .colored_dot{
+                    
+                    height: 10px;
+                    width: 10px;
+                    border-radius: 50%;
+                    display: inline-block;
+                    margin-right: 5px;
+                }
+                .post_category{
+                    display: inline;
+                    margin-right:5px;
+                    // color: #a3a3a3;
+                }
+            }
+            .author_name{
+                // color: #a3a3a3;
+            }
+            .date{
+                color: #a3a3a3;
+            }
+        }
+        .post_excerpt{
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        
+    }
 }
-.excerpt{
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: 400;
-}
+
 .button{
     background-color: #FF5573;
     color:white;

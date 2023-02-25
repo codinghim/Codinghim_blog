@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Carousel from 'react-multi-carousel'
 import { getFeaturedPosts } from '@/services'
 import Styles from '@/styles/featuredpost.module.scss'
-import { ST } from 'next/dist/shared/lib/utils';
 
 const FeaturedPosts = () => {
 
@@ -13,18 +12,23 @@ const FeaturedPosts = () => {
     const responsive = {
         desktop: {
           breakpoint: { max: 3000, min: 1280 },
-          items: 3,
+          items: 4,
           slidesToSlide: 1 // optional, default to 1.
         },
         tablet: {
           breakpoint: { max: 1279, min: 770 },
-          items: 2,
+          items: 3,
           slidesToSlide: 1 // optional, default to 1.
         },
         mobile: {
-          breakpoint: { max: 769, min: 0 },
-          items: 1,
+          breakpoint: { max: 1015, min: 615 },
+          items: 2,
           slidesToSlide: 1 // optional, default to 1.
+        },
+        sm_mobile:{
+            breakpoint:{max: 614, min:0},
+            items: 1,
+            slidesToSlide: 1
         }
     };
 
@@ -55,8 +59,7 @@ const FeaturedPosts = () => {
                                     alt={featuredPost.title}
                                     unoptimized
                                     src={featuredPost.featuredImage.url}
-                                    layout='fill'
-                                    objectFit='fill'
+                                    fill
                                 />
                             </div>
                             <div className={Styles.title_container}>
