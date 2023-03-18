@@ -15,14 +15,21 @@ export default function Home({posts}) {
             <Head>
                 <title>CodingHim Blog</title>
                 <link rel='icon' href='/favicon.ico'/>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             </Head>
             <FeaturedPosts />
-            <div className='w-full overflow-hidden'>
-                <h2 className='text-2xl font-light'>Latest</h2>
-                <div className=''>
-                    {posts.map((post)=> (
-                        <PostCard post={post.node} key={post.node.title} />
-                    ))}
+            <div className='grid grid-cols-1 lg:grid-cols-12 w-full overflow-hidden'>
+                <div className='col-span-1 lg:col-span-8'>
+                    <h2 className='text-2xl font-light'>Latest</h2>
+                    <div className=''>
+                        {posts.map((post)=> (
+                            <PostCard post={post.node} key={post.node.title} />
+                        ))}
+                    </div>
+                </div>
+                
+                <div className='col-span-1 lg:col-span-4'>
+                    <PostWidget />
                 </div>
                 {/* <div className='lg:col-span-4 md:col-span-4 col-span-1'>
                     <div className='lg:sticky relative top-8'>
