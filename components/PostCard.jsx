@@ -1,7 +1,7 @@
 import React from 'react'
 import Styles from '@/styles/postcard.module.scss'
 import moment from 'moment'
-import Link from 'next/Link'
+import Link from 'next/link'
 import Image from 'next/image'
 
 const PostCard = ({post}) => {

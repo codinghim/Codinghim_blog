@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Link from 'next/Link'
+import Link from 'next/link'
 import Styles from '@/styles/header.module.scss'
 // import { getCategories } from '../services'
 

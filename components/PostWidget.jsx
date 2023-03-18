@@ -18,8 +18,8 @@ const PostWidget = ({slug}) => {
             </h2>
             <div>
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9341946917256754"
-                    crossorigin="anonymous"></script>
-                <ins class="adsbygoogle"
+                    crossOrigin="anonymous"></script>
+                <ins className="adsbygoogle"
                     data-ad-client="ca-pub-9341946917256754"
                     data-ad-slot="4592745262"
                     data-ad-format="auto"
