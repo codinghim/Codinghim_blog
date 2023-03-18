@@ -33,7 +33,7 @@ const PostCard = ({post}) => {
                                 </div>
                             ))}
                         </div>
-                        <h2 className={Styles.author_name}>{post.author.name}</h2>
+                        <h2 className={Styles.author_name}>By {post.author.name}</h2>
                         <h2 className={Styles.date}>{moment(post.createdAt).format('MMM DD, YYYY')}</h2>           
                     </div>
                     <h3 className={Styles.post_excerpt}>{post.excerpt}</h3>             

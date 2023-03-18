@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { getPosts, getPostDetails } from '@/services'
-import { PostDetail } from '@/components'
+import { PostDetail, PostWidget } from '@/components'
 
 const PostDetails = ({post}) => {
     return (
