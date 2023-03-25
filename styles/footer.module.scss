@@ -1,0 +1,18 @@
+.footer{
+    width: 100%;
+    min-height:40vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: solid 1px black;
+    .icons_container{
+        display: flex;
+        column-gap: 30px;
+    }
+    .copyright{
+        min-height: 15vh;
+        text-align: center;
+        padding-top: 5vh;
+    }
+}
