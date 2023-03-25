@@ -154,7 +154,34 @@ export const getRecentPosts = async () => {
 }
 
 export const getCategoriedPostSlugs = async (category) => {
-    const query = gql`
+    var query
+    if(category=="all"){
+        query = gql`
+        query GetCategoriedPosts(){
+            posts{
+                title
+                featuredImage{
+                    url
+                }
+                createdAt
+                slug
+                categories {
+                    name
+                    slug
+                }
+                author {
+                    bio
+                    name
+                    id
+                    photo {
+                    url
+                    }
+                }
+            }
+        }
+    `
+    }else{
+        query = gql`
         query GetCategoriedPosts($category: String!){
             posts(
                 where: { categories_some: {slug: $category }} 
@@ -180,6 +207,9 @@ export const getCategoriedPostSlugs = async (category) => {
             }
         }
     `
+    }
+    
+    
 
     const result = await request(graphqlAPI, query, { category })
 
@@ -187,15 +217,21 @@ export const getCategoriedPostSlugs = async (category) => {
 }
 
 export const getCategoryTitle = async (slug) => {
-    const query = gql`
-        query GetCategoryTitle($slug: String!){
-            categories(
-                where: {slug: $slug}
-            ){
-                name
+    var query
+    if(slug=="all"){
+        return [{name: 'All'}]
+    }else{
+        query = gql`
+            query GetCategoryTitle($slug: String!){
+                categories(
+                    where: {slug: $slug}
+                ){
+                    name
+                }
             }
-        }
-    `
+        `
+    }
+    
 
     const result = await request(graphqlAPI, query, {slug})
 

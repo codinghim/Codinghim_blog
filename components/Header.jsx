@@ -9,7 +9,9 @@ const Header = () => {
 
     useEffect(()=>{
         getCategories()
-            .then((newCategories) => setCategories(newCategories))
+            .then((newCategories) => {
+                setCategories([{'name':'All', slug: 'all'}].concat(newCategories))
+            })
     }, [])
 
     return (

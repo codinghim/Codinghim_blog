@@ -1,5 +1,5 @@
 import { Category } from '@/components'
-import { getCategoriedPostSlugs, getCategories, getCategoryTitle } from '@/services'
+import { getCategoriedPostSlugs, getCategories, getCategoryTitle, getPosts } from '@/services'
 import React from 'react'
 
 const category = ({post, category}) => {
@@ -22,7 +22,8 @@ export async function getStaticProps({params}){
 }
 
 export async function getStaticPaths(){
-    const categories = await getCategories()
+    const categories = [{'name':'All', slug: 'all'}].concat(await getCategories())
+
     return{
         paths: categories.map((category) => ({ params: { category:category.slug} })),
         fallback: false,
