@@ -48,6 +48,7 @@ export const getFeaturedPosts = async () => {
                 featuredImage{
                     url
                 }
+                slug
             }
         }
     `
@@ -150,4 +151,53 @@ export const getRecentPosts = async () => {
     const result = await request(graphqlAPI, query)
 
     return result.posts
+}
+
+export const getCategoriedPostSlugs = async (category) => {
+    const query = gql`
+        query GetCategoriedPosts($category: String!){
+            posts(
+                where: { categories_some: {slug: $category }} 
+            ){
+                title
+                featuredImage{
+                    url
+                }
+                createdAt
+                slug
+                categories {
+                    name
+                    slug
+                }
+                author {
+                    bio
+                    name
+                    id
+                    photo {
+                    url
+                    }
+                }
+            }
+        }
+    `
+
+    const result = await request(graphqlAPI, query, { category })
+
+    return result.posts
+}
+
+export const getCategoryTitle = async (slug) => {
+    const query = gql`
+        query GetCategoryTitle($slug: String!){
+            categories(
+                where: {slug: $slug}
+            ){
+                name
+            }
+        }
+    `
+
+    const result = await request(graphqlAPI, query, {slug})
+
+    return result.categories
 }

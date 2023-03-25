@@ -7,6 +7,7 @@ import Image from 'next/image'
 const PostCard = ({post}) => {
     return (
         <Link href={`/post/${post.slug}`}>
+            {console.log(post)}
             <div className={Styles.post_container}>
                 
                 <div className={Styles.thumbnail_container}>
@@ -16,6 +17,7 @@ const PostCard = ({post}) => {
                         alt={post.title}
                         unoptimized
                         fill
+                        priority
                     />
                 </div>
                 <div className={Styles.post_card_detail_container}>

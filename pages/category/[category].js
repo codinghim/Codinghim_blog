@@ -1,20 +1,30 @@
-import { PostCard } from '@/components'
-import { getCategories } from '@/services'
+import { Category } from '@/components'
+import { getCategoriedPostSlugs, getCategories, getCategoryTitle } from '@/services'
 import React from 'react'
 
-const category = ({slug}) => {
-  return (
-    <div>
-        category
-    </div>
-  )
+const category = ({post, category}) => {
+    return (
+        <>
+            <Category posts={post} category={category}/>
+        </>
+    )
+}
+
+export async function getStaticProps({params}){
+    const data = await getCategoriedPostSlugs(params.category)
+    const title = await getCategoryTitle(params.category)
+    return{
+        props:{
+            post:data,
+            category: title[0].name
+        }
+    }
 }
 
 export async function getStaticPaths(){
     const categories = await getCategories()
-    console.log(category)
     return{
-        paths: categories.map((category) => ({ params: { category:category.slug } })),
+        paths: categories.map((category) => ({ params: { category:category.slug} })),
         fallback: false,
     }
 }

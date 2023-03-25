@@ -8,8 +8,6 @@ const PostWidget = ({categories, slug}) => {
     const [relatedPosts, setRelatedPosts] = useState([])
 
     useEffect(()=>{
-        console.log('slug: ')
-        console.log(slug)
         var ads = document.getElementsByClassName("adsbygoogle").length;
         for (var i = 0; i < ads; i++) {
             try {
@@ -40,7 +38,7 @@ const PostWidget = ({categories, slug}) => {
                         Related Posts
                     </h2>
                     {relatedPosts.slice(0,4).map((post)=>(
-                        <div key={post.title} className='flex items-center w-full mb-4'>
+                        <Link href={`/post/${post.slug}`} key={post.title} className='flex items-center w-full mb-4'>
                             <div className='w-16 flex-none'>
                             <img 
                                 alt={post.title}
@@ -54,11 +52,11 @@ const PostWidget = ({categories, slug}) => {
                                 <p className='text-gray-500 font-xs'>
                                     {moment(post.createdAt).format('MMM DD, YYYY')}
                                 </p>
-                                <Link href={`/post/${post.slug}`} className='text-md'>
+                                <p className='text-md'>
                                     {post.title}
-                                </Link>
+                                </p>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             }
