@@ -7,7 +7,6 @@ import Image from 'next/image'
 const PostCard = ({post}) => {
     return (
         <Link href={`/post/${post.slug}`}>
-            {console.log(post)}
             <div className={Styles.post_container}>
                 
                 <div className={Styles.thumbnail_container}>

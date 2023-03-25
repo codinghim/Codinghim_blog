@@ -53,23 +53,23 @@ const FeaturedPosts = () => {
                 className=''
             >
                 {featuredPosts.map((featuredPost)=>(
-                    <Link href={`/post/${featuredPost.slug}`}>
-                    <div key={featuredPost.title} className="flex w-full h-full justify-center">
-                        <div>   
-                            <div className={Styles.img_container}>
-                                <Image className=""
-                                    alt={featuredPost.title}
-                                    unoptimized
-                                    src={featuredPost.featuredImage.url}
-                                    fill
-                                    priority
-                                />
-                            </div>
-                            <div className={Styles.title_container}>
-                                <h2>{featuredPost.title}</h2>
+                    <Link href={`/post/${featuredPost.slug}`}  key={featuredPost.title}>
+                        <div className="flex w-full h-full justify-center">
+                            <div>   
+                                <div className={Styles.img_container}>
+                                    <Image className=""
+                                        alt={featuredPost.title}
+                                        unoptimized
+                                        src={featuredPost.featuredImage.url}
+                                        fill
+                                        priority
+                                    />
+                                </div>
+                                <div className={Styles.title_container}>
+                                    <h2>{featuredPost.title}</h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </Link>
                 ))}
             </Carousel>
