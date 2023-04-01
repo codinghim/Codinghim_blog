@@ -10,7 +10,7 @@ const category = ({post, category}) => {
     )
 }
 
-export async function getStaticProps({params}){
+export async function getServerSideProps({params}){
     const data = await getCategoriedPostSlugs(params.category)
     const title = await getCategoryTitle(params.category)
     return{
@@ -20,14 +20,3 @@ export async function getStaticProps({params}){
         }
     }
 }
-
-export async function getStaticPaths(){
-    const categories = [{'name':'All', slug: 'all'}].concat(await getCategories())
-
-    return{
-        paths: categories.map((category) => ({ params: { category:category.slug} })),
-        fallback: false,
-    }
-}
-
-export default category
