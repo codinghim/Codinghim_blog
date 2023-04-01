@@ -20,3 +20,14 @@ export async function getServerSideProps({params}){
         }
     }
 }
+
+// export async function getStaticPaths(){
+//     const categories = [{'name':'All', slug: 'all'}].concat(await getCategories())
+
+//     return{
+//         paths: categories.map((category) => ({ params: { category:category.slug} })),
+//         fallback: false,
+//     }
+// }
+
+export default category
