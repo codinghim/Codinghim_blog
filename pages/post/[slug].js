@@ -11,7 +11,7 @@ const PostDetails = ({post}) => {
     )
 }
 
-export async function getStaticProps({params}){
+export async function getServerSideProps({params}){
     const data = await getPostDetails(params.slug)
     return{
         props:{
@@ -20,12 +20,12 @@ export async function getStaticProps({params}){
     }
 }
 
-export async function getStaticPaths(){
-    const posts = await getPosts()
-    return{
-        paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-        fallback: false,
-    }
-}
+// export async function getStaticPaths(){
+//     const posts = await getPosts()
+//     return{
+//         paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
+//         fallback: false,
+//     }
+// }
 
 export default PostDetails
